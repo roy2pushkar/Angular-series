@@ -1,3 +1,5 @@
+<!--
+ Day 1 code for box size counter
 <div class="container">
   Value of Count = {{ counter }}
 
@@ -11,4 +13,41 @@
   <input type="number" [(ngModel)]="height" />
   <input type="number" [(ngModel)]="w" />
   <p>Height of button is set to {{ height }} and width is set to {{ w }}</p>
+</div>
+!-->
+
+<!-- //Product Table !-->
+
+<div class="container">
+  <h2 class="text-center text-info">{{ title }}</h2>
+  <input
+    type="text"
+    class="form-control"
+    placeholder="enter product name to serch"
+    [(ngModel)]="searchText"
+  />
+  <hr />
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Color</th>
+        <th>Quantity</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products | productSearch : searchText">
+        <td>{{ product.Id }}</td>
+        <td [style.color]="product.Color">{{ product.Title }}</td>
+        <td>{{ product.Price }}</td>
+        <td>{{ product.Color }}</td>
+        <td>{{ product.Quantity }}</td>
+        <td class="btn btn-danger">Delete</td>
+        <td class="btn btn-info">Edit</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
